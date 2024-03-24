@@ -27,8 +27,8 @@ final class ViewFrame: ObservableObject {
 }
 
 extension View {
-    func frameGetter(_ frame: Binding<CGRect>) -> some View {
-        modifier(FrameGetter(frame: frame))
+    func frameGetter(_ frame: Binding<CGRect>, coordinateSpaceName: String) -> some View {
+        modifier(FrameGetter(frame: frame, coordinateSpaceName: coordinateSpaceName))
     }
 }
 
@@ -40,13 +40,14 @@ struct FrameRectPreferenceKey: PreferenceKey {
 struct FrameGetter: ViewModifier {
 
     @Binding var frame: CGRect
+    var coordinateSpaceName: String
 
     func body(content: Content) -> some View {
         content
             .background(
                 GeometryReader { proxy in
                     EmptyView()
-                        .preference(key: FrameRectPreferenceKey.self, value: proxy.frame(in: .named("SCALING_SCROLL_VIEW")))
+                        .preference(key: FrameRectPreferenceKey.self, value: proxy.frame(in: .named(coordinateSpaceName)))
                 }
             )
             .onPreferenceChange(FrameRectPreferenceKey.self) { rect in

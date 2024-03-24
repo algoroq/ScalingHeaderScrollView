@@ -121,6 +121,10 @@ public struct ScalingHeaderScrollView<Header: View, Content: View>: View {
 
     /// Clipped or not header
     private var headerIsClipped: Bool = true
+    
+    // TODO: make unique per each instance? Use date?
+    /// Unique scroll view coordinate space name that is used to scope geometry frames
+    private var coordinateSpaceName: String = "scalingHeaderScrollViewFrameSpace"
 
     /// Private computed properties
     private var hasPullToRefresh: Bool {
@@ -181,7 +185,7 @@ public struct ScalingHeaderScrollView<Header: View, Content: View>: View {
             ScrollView(showsIndicators: showsIndicators) {
                 content
                     .offset(y: contentOffset)
-                    .frameGetter($contentFrame.frame)
+                    .frameGetter($contentFrame.frame, coordinateSpaceName: coordinateSpaceName)
                     .onChange(of: contentFrame.frame) { frame in
                         pullToRefreshInProgress = frame.minY - globalGeometry.frame(in: .global).minY > 20.0
                     }
@@ -212,9 +216,6 @@ public struct ScalingHeaderScrollView<Header: View, Content: View>: View {
                                 .offset(y: getOffsetForHeader())
                                 .allowsHitTesting(true)
                                 .scaleEffect(headerScaleOnPullDown)
-                            
-                            //Text("Content frame max Y - \(contentFrame.startingRect?.maxY ?? -1)")
-                            //Text("Contant frame nil? \(contentFrame.startingRect == nil ? "T" : "F")")
                         }
                     }
                     .offset(y: getGeometryReaderVsScrollView(scrollGeometry: scrollGeometry, globalGeometry: globalGeometry))
@@ -236,7 +237,7 @@ public struct ScalingHeaderScrollView<Header: View, Content: View>: View {
                     .offset(y: globalGeometry.size.height - 60)
             }
         }
-        .coordinateSpace(name: "SCALING_SCROLL_VIEW")
+        .coordinateSpace(name: coordinateSpaceName)
     }
 
     // MARK: - Private Views
@@ -372,7 +373,7 @@ public struct ScalingHeaderScrollView<Header: View, Content: View>: View {
     }
 
     private func getGeometryReaderVsScrollView(scrollGeometry: GeometryProxy, globalGeometry: GeometryProxy) -> CGFloat {
-        getScrollOffset() - scrollGeometry.frame(in: .named("SCALING_SCROLL_VIEW")).minY - globalGeometry.frame(in: .named("SCALING_SCROLL_VIEW")).minY
+        getScrollOffset() - scrollGeometry.frame(in: .named(coordinateSpaceName)).minY - globalGeometry.frame(in: .named(coordinateSpaceName)).minY
     }
 
     private func getOffsetForHeader() -> CGFloat {
