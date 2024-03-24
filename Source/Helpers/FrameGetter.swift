@@ -46,7 +46,7 @@ struct FrameGetter: ViewModifier {
             .background(
                 GeometryReader { proxy in
                     EmptyView()
-                        .preference(key: FrameRectPreferenceKey.self, value: proxy.frame(in: .global))
+                        .preference(key: FrameRectPreferenceKey.self, value: proxy.frame(in: .named("SCALING_SCROLL_VIEW")))
                 }
             )
             .onPreferenceChange(FrameRectPreferenceKey.self) { rect in

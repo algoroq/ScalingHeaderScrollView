@@ -204,13 +204,18 @@ public struct ScalingHeaderScrollView<Header: View, Content: View>: View {
                                 .opacity(pullToRefreshOpacity)
                                 .offset(y: getOffsetForHeader() + progressViewOffset)
                         }
-                        header
-                            .frame(height: headerHeight, alignment: headerAlignment)
-                            .clipped(isClipped: headerIsClipped)
-                            .contentShape(Rectangle())
-                            .offset(y: getOffsetForHeader())
-                            .allowsHitTesting(true)
-                            .scaleEffect(headerScaleOnPullDown)
+                        ZStack {
+                            header
+                                .frame(height: headerHeight, alignment: headerAlignment)
+                                .clipped(isClipped: headerIsClipped)
+                                .contentShape(Rectangle())
+                                .offset(y: getOffsetForHeader())
+                                .allowsHitTesting(true)
+                                .scaleEffect(headerScaleOnPullDown)
+                            
+                            //Text("Content frame max Y - \(contentFrame.startingRect?.maxY ?? -1)")
+                            //Text("Contant frame nil? \(contentFrame.startingRect == nil ? "T" : "F")")
+                        }
                     }
                     .offset(y: getGeometryReaderVsScrollView(scrollGeometry: scrollGeometry, globalGeometry: globalGeometry))
                 }
@@ -231,6 +236,7 @@ public struct ScalingHeaderScrollView<Header: View, Content: View>: View {
                     .offset(y: globalGeometry.size.height - 60)
             }
         }
+        .coordinateSpace(name: "SCALING_SCROLL_VIEW")
     }
 
     // MARK: - Private Views
@@ -366,7 +372,7 @@ public struct ScalingHeaderScrollView<Header: View, Content: View>: View {
     }
 
     private func getGeometryReaderVsScrollView(scrollGeometry: GeometryProxy, globalGeometry: GeometryProxy) -> CGFloat {
-        getScrollOffset() - scrollGeometry.frame(in: .global).minY - globalGeometry.frame(in: .global).minY
+        getScrollOffset() - scrollGeometry.frame(in: .named("SCALING_SCROLL_VIEW")).minY - globalGeometry.frame(in: .named("SCALING_SCROLL_VIEW")).minY
     }
 
     private func getOffsetForHeader() -> CGFloat {

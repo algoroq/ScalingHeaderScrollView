@@ -20,8 +20,11 @@ struct ContentView: View {
     @State var profilePresented = false
     @State var bankingPresented = false
     @State var bookingPresented = false
+    @State var positionedPresented = false
     
     var body: some View {
+                    PositionedScalingHeader()
+    /*
         List {
             Section(header: Text("Simple Examples")) {
                 ExampleView(isPresented: $simplePresented, name: "Simple Scaling Header") {
@@ -58,8 +61,15 @@ struct ContentView: View {
                     BankingScreen()
                 }
             }
+            
+            Section(header: Text("Algoroq Examples")) {
+                ExampleView(isPresented: $positionedPresented, name: "Positioned Scaling Header") {
+                    PositionedScalingHeader()
+                }
+            }
         }
         .listStyle(.grouped)
+     */
     }
 }
 

@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -37,6 +37,7 @@
 		A7C3BC8B27030952001A46FB /* ColorScalingHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C3BC8A27030952001A46FB /* ColorScalingHeader.swift */; };
 		A7C3BC8D27048818001A46FB /* RequestScalingHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C3BC8C27048818001A46FB /* RequestScalingHeader.swift */; };
 		A7C3BC8F2705C27D001A46FB /* TabScalingHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C3BC8E2705C27D001A46FB /* TabScalingHeader.swift */; };
+		F9F138332BB0A04E00B38CDC /* PositionedScalingHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9F138322BB0A04E00B38CDC /* PositionedScalingHeader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -74,6 +75,7 @@
 		A7C3BC8C27048818001A46FB /* RequestScalingHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestScalingHeader.swift; sourceTree = "<group>"; };
 		A7C3BC8E2705C27D001A46FB /* TabScalingHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabScalingHeader.swift; sourceTree = "<group>"; };
 		A7D6D41B8D5CB51AF90D2765 /* Pods-Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.release.xcconfig"; path = "Target Support Files/Pods-Example/Pods-Example.release.xcconfig"; sourceTree = "<group>"; };
+		F9F138322BB0A04E00B38CDC /* PositionedScalingHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionedScalingHeader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -231,6 +233,7 @@
 				A7C3BC8A27030952001A46FB /* ColorScalingHeader.swift */,
 				A7C3BC8C27048818001A46FB /* RequestScalingHeader.swift */,
 				A7C3BC8E2705C27D001A46FB /* TabScalingHeader.swift */,
+				F9F138322BB0A04E00B38CDC /* PositionedScalingHeader.swift */,
 			);
 			path = Examples;
 			sourceTree = "<group>";
@@ -371,6 +374,7 @@
 				5BB2A975273CFE610080FA93 /* ProfileHelpers.swift in Sources */,
 				0C6539522730E30700B49BF9 /* Color+hex.swift in Sources */,
 				5B4BE8D627F6D538000A7FE7 /* BookingScreenViewModel.swift in Sources */,
+				F9F138332BB0A04E00B38CDC /* PositionedScalingHeader.swift in Sources */,
 				A7C3BC882702FAD1001A46FB /* MapScalingHeader.swift in Sources */,
 				A7C3BC842702F69C001A46FB /* SimpleScalingHeader.swift in Sources */,
 				5B1CDFFF26F354D100C76DB7 /* ExampleApp.swift in Sources */,
@@ -507,7 +511,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Example/Preview Content\"";
-				DEVELOPMENT_TEAM = FZXCM5CJ7P;
+				DEVELOPMENT_TEAM = 8HMCF9AS73;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Example/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
@@ -515,7 +519,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.exyte.Example;
+				PRODUCT_BUNDLE_IDENTIFIER = com.exyte.ExampleTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
@@ -532,7 +536,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Example/Preview Content\"";
-				DEVELOPMENT_TEAM = FZXCM5CJ7P;
+				DEVELOPMENT_TEAM = 8HMCF9AS73;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Example/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
@@ -540,7 +544,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.exyte.Example;
+				PRODUCT_BUNDLE_IDENTIFIER = com.exyte.ExampleTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
