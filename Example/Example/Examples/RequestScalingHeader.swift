@@ -54,10 +54,6 @@ struct RequestScalingHeader: View {
             .onAppear {
                 displayedColors = (0..<5).map { _ in colorSet.randomElement() ?? .red }
             }
-
-            Button("", action: { self.presentationMode.wrappedValue.dismiss() })
-                .buttonStyle(CircleButtonStyle(imageName: "arrow.backward"))
-                .padding(.leading, 16)
         }
     }
 

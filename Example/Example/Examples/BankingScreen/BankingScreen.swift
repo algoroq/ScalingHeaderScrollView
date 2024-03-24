@@ -56,10 +56,6 @@ struct BankingScreen: View {
     private var topButtons: some View {
         VStack {
             HStack {
-                Button("", action: { self.presentationMode.wrappedValue.dismiss() })
-                    .buttonStyle(CircleButtonStyle(imageName: "arrow.backward", background: .white.opacity(0), width: 50, height: 50))
-                    .padding(.leading, 17)
-                    .padding(.top, 50)
                 Spacer()
                 Button("", action: { print("Info") })
                     .buttonStyle(CircleButtonStyle(imageName: "ellipsis", background: .white.opacity(0), width: 50, height: 50))

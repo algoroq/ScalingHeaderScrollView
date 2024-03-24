@@ -43,9 +43,6 @@ struct BookingScreen: View {
     private var topButtons: some View { 
         VStack {
             HStack(spacing: 16) {
-                Button("") { self.presentationMode.wrappedValue.dismiss() }
-                    .buttonStyle(CircleButtonStyle(imageName: "arrow.backward"))
-                    .padding(.leading, 16)
                 Spacer()
                 Button("") {
                     print("Share")
