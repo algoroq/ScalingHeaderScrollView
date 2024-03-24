@@ -32,10 +32,6 @@ struct SimpleScalingHeader: View {
             }
             .allowsHeaderCollapse()
             .ignoresSafeArea()
-
-            Button("", action: { self.presentationMode.wrappedValue.dismiss() })
-                .buttonStyle(CircleButtonStyle(imageName: "arrow.backward"))
-                .padding(.leading, 16)
         }
     }
     
